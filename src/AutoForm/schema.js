@@ -32,6 +32,12 @@ export const schema = {
     agreed: {
       type: 'checkbox',
       text: 'I agree to the terms and conditions',
+      constraints: {
+        required: true
+      },
+      errors: {
+        required: 'Terms and conditions are not met'
+      },
     },
     profession: { type: 'text' },
     additionalInfo: { type: 'text' }

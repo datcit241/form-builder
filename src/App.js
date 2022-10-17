@@ -17,6 +17,7 @@ function App() {
           <AutoField name={'gender'} />
           <div>
             <AutoField name={'agreed'} />
+            <ErrorField name={'agreed'}/>
           </div>
           <SubmitField />
         </AutoForm>
