@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import AutoForm from './AutoForm/AutoForm'
+import AutoField from './AutoForm/AutoField'
+import { schema } from './AutoForm/schema'
+import SubmitField from './AutoForm/SubmitField'
+import ErrorField from './AutoForm/ErrorField'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <AutoForm schema={schema} onSubmit={data => console.log(data)}>
+          <AutoField name={'age'} />
+          <ErrorField name={'age'} />
+          <div>This will stay intact</div>
+          <AutoField name={'gender'} />
+          <div>
+            <AutoField name={'agreed'} />
+          </div>
+          <SubmitField />
+        </AutoForm>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
