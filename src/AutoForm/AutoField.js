@@ -29,7 +29,9 @@ function AutoField(props) {
       case 'checkbox':
         return (
           <>
-            <input id={name} {...fieldProps} type={field.type} {...register(name, { ...field.constraints })} />
+            <input id={name} {...fieldProps} type={field.type} {...register(name, { ...field.constraints })}
+                   aria-invalid={errors[name] ? 'true' : 'false'}
+            />
             {
               field.text && <label htmlFor={name}>{field.text}</label>
             }
@@ -50,7 +52,7 @@ function AutoField(props) {
     }
   }
 
-  return switchComponent(field.type);
+  return switchComponent(field.type)
 }
 
 export default AutoField
