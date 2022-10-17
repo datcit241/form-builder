@@ -1,6 +1,9 @@
-function SubmitField() {
+import clsx from 'clsx'
+
+function SubmitField(props) {
+  const {classes, className} = props;
   return (
-    <input type='submit' />
+    <input className={clsx(classes.root, className)} type='submit' />
   )
 }
 

@@ -1,18 +1,23 @@
-import {useFormContext, useSchemaContext} from "./FormProvider";
+import { useFormContext, useSchemaContext } from './FormProvider'
+import clsx from 'clsx'
 
 function ErrorField(props) {
-    const {name} = props;
+  const { name, classes, className } = props
 
-    const schema = useSchemaContext();
-    const {formState: { errors }} = useFormContext();
+  const schema = useSchemaContext()
+  const { formState: { errors } } = useFormContext()
 
-    const field = schema.properties[name];
+  const field = schema.properties[name]
 
-    return (
-        <>
-            {errors[name] && <p role="alert">{field.errors[errors[name].type]}</p>}
-        </>
-    )
+  return (
+    <>
+      {errors[name] && <p className={clsx(classes.root, className)}>{field.errors[errors[name].type]}</p>}
+    </>
+  )
 }
 
-export default ErrorField;
+ErrorField.defaultProps = {
+  className: ''
+}
+
+export default ErrorField
